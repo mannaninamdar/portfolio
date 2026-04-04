@@ -115,7 +115,10 @@ function ExperienceSection({ profile }: { profile: Profile }) {
                 </p>
               </div>
             </div>
-            <p className="job-summary">{job.summary}</p>
+            <div className="job-company-intro">
+              <p className="job-intro-eyebrow">Company overview</p>
+              <p className="job-company-intro-text">{job.summary}</p>
+            </div>
             <h4 className="job-subheading">Roles & responsibilities</h4>
             <ul className="role-bullets">
               {job.bullets.map((b) => (
