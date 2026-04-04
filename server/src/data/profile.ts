@@ -1,45 +1,83 @@
 export const profile = {
-  name: "Mannan",
-  title: "Node.js Developer",
+  name: "Mannan Inamdar",
+  title: "Node.js Backend Developer",
   tagline:
-    "Backend engineer focused on reliable APIs, data, and production-ready Node.js services.",
+    "Results-driven backend engineer with 3+ years building scalable Node.js systems using JavaScript, TypeScript, and SQL. Strong with Express.js, PostgreSQL, and Sequelize—REST APIs, third-party integrations, and data-driven architecture—with a performance-focused, analytical mindset from a data analysis background.",
   yearsExperience: 3,
-  location: "Available remotely",
+  location: "Pune, India",
   highlights: [
-    "3+ years building and shipping Node.js applications",
-    "Strong SQL: schema design, query optimization, and data modeling",
-    "REST APIs, integrations, and pragmatic system design",
+    "Scalable REST APIs in Node.js and TypeScript",
+    "Cron jobs, pipelines, and high-volume data ingestion",
+    "JWT auth, production on-call, and LLM-powered product features",
   ],
-  skills: {
-    languages: ["JavaScript", "TypeScript", "SQL"],
-    backend: ["Node.js", "Express", "REST APIs"],
-    data: ["PostgreSQL", "MySQL", "query tuning", "migrations"],
-    tooling: ["Git", "Docker", "testing", "CI basics"],
-  },
+  skillGroups: [
+    { title: "Languages", items: ["JavaScript", "TypeScript", "SQL"] },
+    { title: "Frameworks", items: ["Express.js", "Sequelize ORM"] },
+    { title: "Databases", items: ["PostgreSQL", "ClickHouse"] },
+    {
+      title: "Dev tools",
+      items: ["VS Code", "Git", "Postman", "Docker", "Metabase", "ESLint"],
+    },
+    { title: "AWS", items: ["EC2", "S3", "IAM", "CloudWatch"] },
+    {
+      title: "AI tools",
+      items: ["Cursor", "ChatGPT", "Antigravity", "GitHub Copilot"],
+    },
+  ],
+  experience: [
+    {
+      company: "DappLooker AI",
+      role: "Node.js Backend Developer",
+      period: "Apr 2023 – Present",
+      summary:
+        "Unified data layer for autonomous agents—real-time, structured crypto intelligence for AI agents, DeFi trading systems, staking analyzers, and risk management tools.",
+      bullets: [
+        "Designed and implemented scalable REST APIs using Node.js and TypeScript",
+        "Built cron jobs for automated data processing and scheduled workflows",
+        "Integrated third-party services to fetch, process, and store large volumes of data efficiently",
+        "Implemented JWT-based authentication and authorization for secure login and access control",
+        "On-call production support, debugging, and reliability for live systems",
+        "LLM integrations for AI-driven features and automation",
+      ],
+    },
+  ],
+  education: [
+    {
+      institution: "NBN Sinhgad College of Engineering",
+      location: "Solapur, Maharashtra, India",
+      credential: "Bachelor of Mechanical Engineering",
+      period: "June 2017 – May 2020",
+    },
+    {
+      institution: "Indira Institute of Diploma Engineering",
+      location: "Solapur, Maharashtra, India",
+      credential: "Diploma in Mechanical Engineering",
+      period: "June 2013 – May 2016",
+    },
+  ],
+  achievements: [
+    "2nd prize — Global Web3 Ecosystem category, ETHIndia Hackathon 2023 (best use of an existing subgraph).",
+    "Winner — Week 24 On-Chain Analytics Contest for the Betswirl betting project.",
+  ],
   projects: [
     {
-      name: "API & data layer",
+      name: "HyprEarn",
       description:
-        "Design and implementation of REST services with validated inputs, structured logging, and SQL-backed persistence.",
-      stack: ["Node.js", "TypeScript", "SQL"],
-      link: null as string | null,
+        "One-click trading on Hyperliquid DEX with LLM-generated trade suggestions. Referral rewards and points programs with schema design, REST APIs, caching, and cron-based reward distribution—optimized for real-time trading data.",
+      stack: ["Node.js", "TypeScript", "PostgreSQL", "Express", "LLM", "Caching"],
+      link: "https://hyprearn.com",
     },
     {
-      name: "Integration workflows",
+      name: "DappLooker AI (platform)",
       description:
-        "Reliable background jobs and third-party integrations with retries, idempotency, and clear error handling.",
-      stack: ["Node.js", "queues", "webhooks"],
-      link: null as string | null,
-    },
-    {
-      name: "Your next project",
-      description:
-        "Replace this card with a real repo, case study, or live demo. The content is driven from the server API.",
-      stack: ["Add", "your", "stack"],
-      link: null as string | null,
+        "Large-scale integrations from APIs, blockchain nodes, and indexers into a unified data layer. Ingestion pipelines, cron workflows for continuous sync, and reliable high-throughput backend processing.",
+      stack: ["Node.js", "TypeScript", "PostgreSQL", "REST APIs", "Data pipelines"],
+      link: "https://dapplooker.com",
     },
   ],
   social: {
+    phoneDisplay: "+91 7757 826 486",
+    phoneTel: "+917757826486",
     github: "https://github.com/mannaninamdar",
     linkedin: "https://www.linkedin.com/in/mannan-inamdar-42422816a/",
     email: "mannaninamdar@gmail.com",
