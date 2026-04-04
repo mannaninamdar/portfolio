@@ -31,9 +31,7 @@ function Hero({ profile }: { profile: Profile }) {
           <div className="hero-pill" aria-hidden>
             <span>Node.js · TypeScript · PostgreSQL · Express</span>
           </div>
-          <h1>
-            {profile.name} — {profile.title}
-          </h1>
+          <h1>{profile.title}</h1>
           <p className="tagline">{profile.tagline}</p>
           <p className="hero-location">
             <svg aria-hidden className="hero-location-icon" viewBox="0 0 24 24" fill="none">
