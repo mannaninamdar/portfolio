@@ -261,6 +261,15 @@ section h2 {
     font-size: 0.95rem;
 }
 
+.copy-justified {
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    text-wrap: pretty;
+    line-height: 1.65;
+}
+
 .highlights {
     list-style: none;
     padding: 0;
@@ -492,11 +501,35 @@ section h2 {
 .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
 }
 
-.contact-links a {
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
     color: var(--text);
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: var(--accent-dim);
+    text-decoration: none;
+}
+
+.contact-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+    color: var(--accent-dim);
+}
+
+.contact-link:hover .contact-icon {
+    color: var(--accent);
+}
+
+.contact-icon-fill {
+    transform: translateY(0.5px);
 }
 
 .form {
