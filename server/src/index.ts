@@ -4,7 +4,7 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
-import { profile } from "./data/profile.js";
+import { getProfileForApi } from "./data/profile.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,7 +33,7 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.get("/api/profile", (_req, res) => {
-  res.json(profile);
+  res.json(getProfileForApi());
 });
 
 app.post("/api/contact", contactLimiter, (req, res) => {

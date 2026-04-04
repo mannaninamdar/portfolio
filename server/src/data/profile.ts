@@ -1,9 +1,8 @@
-export const profile = {
+import { computeYearsExperience } from "../lib/yearsExperience.js";
+
+const profileCore = {
   name: "Mannan Inamdar",
-  title: "Node.js Backend Developer",
-  tagline:
-    "Results-driven backend engineer with 3+ years building scalable Node.js systems using JavaScript, TypeScript, and SQL. Strong with Express.js, PostgreSQL, and Sequelize—REST APIs, third-party integrations, and data-driven architecture—with a performance-focused, analytical mindset from a data analysis background.",
-  yearsExperience: 3,
+  title: "Node.js Developer",
   location: "Pune, India",
   highlights: [
     "Scalable REST APIs in Node.js and TypeScript",
@@ -83,3 +82,15 @@ export const profile = {
     email: "mannaninamdar@gmail.com",
   },
 } as const;
+
+const TAGLINE_TEMPLATE =
+  "Results-driven backend engineer with {{years}}+ years building scalable Node.js systems using JavaScript, TypeScript, and SQL. Strong with Express.js, PostgreSQL, and Sequelize—REST APIs, third-party integrations, and data-driven architecture—with a performance-focused, analytical mindset from a data analysis background.";
+
+export function getProfileForApi(now: Date = new Date()) {
+  const yearsExperience = computeYearsExperience(now);
+  return {
+    ...profileCore,
+    yearsExperience,
+    tagline: TAGLINE_TEMPLATE.replace("{{years}}", String(yearsExperience)),
+  };
+}
