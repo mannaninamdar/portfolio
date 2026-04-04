@@ -13,8 +13,8 @@ export default defineConfig({
   },
   publicDir: path.join(__dirname, "public"),
   build: {
-    outDir: path.join(__dirname, "dist"),
-    emptyDirBeforeWrite: true,
+    outDir: path.join(__dirname, "..", "public"),
+    emptyOutDir: true,
   },
   server: {
     port: 5173,
