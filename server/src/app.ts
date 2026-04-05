@@ -13,16 +13,36 @@ const __dirname = path.dirname(__filename);
 const isProd = process.env.NODE_ENV === "production";
 
 function resolveStaticRoot(): string {
-  const candidates = [
-    path.join(process.cwd(), "public"),
-    path.join(process.cwd(), "client/dist"),
+  const envRoot = process.env.STATIC_ROOT?.trim();
+  if (envRoot) {
+    const resolved = path.resolve(envRoot);
+    if (existsSync(path.join(resolved, "index.html"))) return resolved;
+    console.warn(`[static] STATIC_ROOT=${envRoot} has no index.html; trying defaults.`);
+  }
+
+  // Prefer paths next to compiled server (dist/server → repo root). Works on EC2/PM2
+  // even when process.cwd() is / or $HOME (common with systemd).
+  const fromApp = [
     path.resolve(__dirname, "../../public"),
     path.resolve(__dirname, "../../client/dist"),
   ];
-  for (const dir of candidates) {
+  for (const dir of fromApp) {
     if (existsSync(path.join(dir, "index.html"))) return dir;
   }
-  return path.join(process.cwd(), "public");
+
+  const fromCwd = [
+    path.join(process.cwd(), "public"),
+    path.join(process.cwd(), "client/dist"),
+  ];
+  for (const dir of fromCwd) {
+    if (existsSync(path.join(dir, "index.html"))) return dir;
+  }
+
+  const fallback = path.resolve(__dirname, "../../public");
+  console.error(
+    `[static] No index.html found. Deploy the Vite build (public/ or client/dist/) beside dist/server, or set STATIC_ROOT. cwd=${process.cwd()} tried: ${[...fromApp, ...fromCwd].join(" | ")}`,
+  );
+  return fallback;
 }
 
 export const app = express();
@@ -94,6 +114,9 @@ app.post("/api/contact", contactLimiter, (req, res) => {
 
 const staticRoot = resolveStaticRoot();
 if (isProd) {
+  if (existsSync(path.join(staticRoot, "index.html"))) {
+    console.info(`[static] ${staticRoot}`);
+  }
   app.use(express.static(staticRoot));
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticRoot, "index.html"));
