@@ -10,7 +10,7 @@ import { getProfileForApi } from "./data/profile.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL === "1";
+const isProd = process.env.NODE_ENV === "production";
 
 function resolveStaticRoot(): string {
   const candidates = [
